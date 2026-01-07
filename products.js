@@ -27,16 +27,16 @@ const products = [
     image: "",
     popular: 8
   },
-  {
-    id: "teaware-01",
-    name: "Гайвань • біла",
-    category: "Посуд",
-    priceUAH: 520,
-    unit: "1 шт",
-    tags: ["церемонія"],
-    image: "",
-    popular: 6
-  }
+{
+  id: "tea-set-symphony-east",
+  name: "Набір • Чайна Симфонія Сходу • 12 видів",
+  category: "Набори",
+  priceUAH: 749,
+  unit: "12 шт",
+  tags: ["набір", "подарунковий", "різноманіття"],
+  image: "https://kovtok.com.ua/wp-content/uploads/2023/03/photo_2023-04-06_19-32-48-2.jpg",
+  popular: 18
+},
 ];
 
 const els = {
