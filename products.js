@@ -35,7 +35,8 @@ const products = [
   tags: ["набір", "подарунковий", "різноманіття"],
   image: "https://kovtok.com.ua/wp-content/uploads/2023/03/photo_2023-04-06_19-32-48-2.jpg",
   popular: 18
-},
+}
+
 ];
 
 const els = {
