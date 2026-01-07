@@ -139,7 +139,7 @@ function applyFilters(){
 
   let list = [...products];
 
-  if (cat !== "all") list = list.filter(p => p.category === cat);
+  if (cat == "all") list = list.filter(p => p.category === cat);
 
   if (q) {
     list = list.filter(p => {
