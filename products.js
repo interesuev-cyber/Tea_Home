@@ -60,8 +60,9 @@ function buildCategories() {
 }
 
 function telegramLink(p){
-  const text = Привіт Хочу замовити: ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн.;
+  const text = Хочу замовити ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн;
   return https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)};
+}
 }
 
 function card(p){
