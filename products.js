@@ -5,7 +5,6 @@ const TELEGRAM_USERNAME = "https://t.me/tea_homeeee";
 
 // Мінімальна структура товару:
 const products = [
-  {
     {
   id: "shu-02",
   name: "Шу Пуер • Кремовий профіль",
