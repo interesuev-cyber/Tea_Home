@@ -57,7 +57,7 @@ function buildCategories() {
     opt.textContent = c;
     els.cat.appendChild(opt);
 }
-JS
+"JS"
   
   function telegramLink(p){
   const text = "Хочу замовити " + p.name + " (" + p.unit + "). Ціна: " + p.priceUAH + " грн";
