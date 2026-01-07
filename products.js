@@ -16,7 +16,6 @@ const products = [
   image: "",
   popular: 5
 },
-  },
   {
     id: "dahongpao-01",
     name: "Да Хун Пао (Уішань)",
