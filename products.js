@@ -58,8 +58,6 @@ function buildCategories() {
     els.cat.appendChild(opt);
 }
 
-}
-
 function card(p){
   const div = document.createElement("div");
   div.className = "card";
