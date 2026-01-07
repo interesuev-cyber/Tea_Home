@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tea Home — Китайські чаї</title>
+  <meta name="description" content="Добірні китайські чаї. Підбір під твій смак. Доставка по Україні." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo">TH</div>
+        <div>
+          <div class="name">Tea Home</div>
+          <div class="tag">Китайські чаї • підбір під тебе</div>
+        </div>
+      </div>
+      <a class="btn" href="#catalog">Дивитись каталог</a>
+    </div>
+
+    <div class="hero">
+      <h1>Чай, який реально “включає” голову</h1>
+      <p>
+        30+ позицій у наявності. Підберу чай під твою ціль: фокус / спокій / спорт / заміна алкоголю.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://t.me/USERNAME_HERE">Замовити в Telegram</a>
+        <a class="btn ghost" href="#how">Як ми працюємо</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Шен / Шу пуер</span>
+        <span class="chip">Улуни</span>
+        <span class="chip">Червоні чаї</span>
+        <span class="chip">Посуд</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="catalog" class="section">
+      <div class="section-head">
+        <h2>Каталог</h2>
+        <div class="filters">
+          <input id="q" class="input" placeholder="Пошук: 'шен', 'улун'..." />
+          <select id="cat" class="input">
+            <option value="all">Всі категорії</option>
+          </select>
+          <select id="sort" class="input">
+            <option value="popular">Сортування: популярне</option>
+            <option value="price_asc">Ціна: зростання</option>
+            <option value="price_desc">Ціна: спадання</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+      <div id="empty" class="empty hidden">Нічого не знайдено. Спробуй інший запит.</div>
+    </section>
+
+    <section id="how" class="section how">
+      <h2>Як замовити</h2>
+      <ol class="steps">
+        <li>Обираєш чай у каталозі</li>
+        <li>Тиснеш “Замовити” — відкривається Telegram з готовим текстом</li>
+        <li>Я уточнюю деталі й відправляємо</li>
+      </ol>
+      <div class="note">
+        <strong>Гарантія.</strong> Товар перевіряю особисто. Не “дроп”.
+      </div>
+    </section>
+
+    <section class="section faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Як зберігати пуер?</summary>
+        <p>Темно, сухо, без запахів. Не над плитою. Не в холодильнику.</p>
+      </details>
+      <details>
+        <summary>Який чай для фокусу?</summary>
+        <p>Шен пуер, деякі улуни (Уішань), залежить від твого стану — підберу.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div>© <span id="y"></span> Tea Home</div>
+    <a target="_blank" rel="noopener" href="https://t.me/USERNAME_HERE">Telegram</a>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
