@@ -13,7 +13,7 @@ const products = [
     unit: "50 г",
     tags: ["спокій", "після їжі"],
     image: "",
-    popular: 5
+    popular: 5,
   },
   {
     id: "dahongpao-01",
@@ -23,51 +23,73 @@ const products = [
     unit: "50 г",
     tags: ["смак", "тепло"],
     image: "",
-    popular: 8
+    popular: 8,
   },
   {
     id: "flower-dragon-120g",
-    name: "Квітковий чай Перлини Дракона 120 г)",
+    name: "Квітковий чай Перлини Дракона (120 г)",
     category: "Чай",
     priceUAH: 359,
     unit: "120 г",
     tags: ["квітковий", "подарунковий", "смак"],
     image: "",
-    popular: 12
+    popular: 12,
   },
   {
     id: "tea-set-symphony-east",
-    name: "Набір Чайна Симфонія Сходу 12 видів",
+    name: "Набір Чайна Симфонія Сходу (12 видів)",
     category: "Набори",
     priceUAH: 749,
     unit: "12 шт",
     tags: ["набір", "подарунковий", "різноманіття"],
-    image: "https://kovtok.com.ua/wp-content/uploads/2023/03/photo_2023-04-06_19-32-48-2.jpg",
-    popular: 18
-  }
+    image:
+      "https://kovtok.com.ua/wp-content/uploads/2023/03/photo_2023-04-06_19-32-48-2.jpg",
+    popular: 18,
+  },
 ];
 
-function ua(n){ return new Intl.NumberFormat("uk-UA").format(n); }
+const els = {
+  q: document.getElementById("q"),
+  cat: document.getElementById("cat"),
+  sort: document.getElementById("sort"),
+  grid: document.getElementById("grid"),
+  empty: document.getElementById("empty"),
+};
+
+function ua(n) {
+  return new Intl.NumberFormat("uk-UA").format(n);
+}
+
+function telegramLink(p) {
+  const text = Хочу замовити ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн;
+  return "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(text);
+}
 
 function buildCategories() {
-  const cats = Array.from(new Set(products.map(p => p.category))).sort();
+  // очистити й додати "Всі"
+  els.cat.innerHTML = "";
+  const all = document.createElement("option");
+  all.value = "all";
+  all.textContent = "Всі";
+  els.cat.appendChild(all);
+
+  // додати категорії
+  const cats = Array.from(new Set(products.map((p) => p.category))).sort();
   for (const c of cats) {
     const opt = document.createElement("option");
     opt.value = c;
     opt.textContent = c;
     els.cat.appendChild(opt);
+  }
 }
 
-function card(p){
+function card(p) {
   const div = document.createElement("div");
   div.className = "card";
-}
-  function telegramLink(p) {
-  const text = `Хочу замовити ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн`;
-  return "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(text);
-}
+
   const thumb = document.createElement("div");
   thumb.className = "thumb";
+
   if (p.image) {
     const img = document.createElement("img");
     img.src = p.image;
@@ -86,10 +108,16 @@ function card(p){
 
   const meta = document.createElement("div");
   meta.className = "meta";
+
+  const tagsHtml = (p.tags || [])
+    .slice(0, 2)
+    .map((t) => `<span class="badge">#${t}</span>`)
+    .join("");
+
   meta.innerHTML = `
     <span class="badge">${p.category}</span>
     <span class="badge">${p.unit}</span>
-    ${p.tags?.slice(0,2).map(t => `<span class="badge">#${t}</span>`).join("") || ""}
+    ${tagsHtml || ""}
   `;
 
   const price = document.createElement("div");
@@ -112,9 +140,13 @@ function card(p){
   copy.textContent = "Скопіювати текст";
   copy.onclick = async () => {
     const t = Замовлення: ${p.name} (${p.unit}) — ${p.priceUAH} грн;
-    try { await navigator.clipboard.writeText(t); copy.textContent = "Скопійовано ✓"; }
-    catch { copy.textContent = "Не вдалось"; }
-    setTimeout(()=>copy.textContent="Скопіювати текст", 1200);
+    try {
+      await navigator.clipboard.writeText(t);
+      copy.textContent = "Скопійовано ✓";
+    } catch {
+      copy.textContent = "Не вдалось";
+    }
+    setTimeout(() => (copy.textContent = "Скопіювати текст"), 1200);
   };
 
   actions.appendChild(buy);
@@ -127,38 +159,9 @@ function card(p){
 
   div.appendChild(thumb);
   div.appendChild(body);
+
   return div;
 }
 
-function applyFilters(){
-  const q = (els.q.value || "").trim().toLowerCase();
-  const cat = els.cat.value;
-  const sort = els.sort.value;
-
-  let list = [...products];
-
-  if (cat == "all") list = list.filter(p => p.category === cat);
-
-  if (q) {
-    list = list.filter(p => {
-      const hay = ${p.name} ${p.category} ${(p.tags||[]).join(" ")}.toLowerCase();
-      return hay.includes(q);
-    });
-  }
-
-  if (sort === "price_asc") list.sort((a,b)=>a.priceUAH-b.priceUAH);
-  if (sort === "price_desc") list.sort((a,b)=>b.priceUAH-a.priceUAH);
-  if (sort === "popular") list.sort((a,b)=>(b.popular||0)-(a.popular||0));
-
-  els.grid.innerHTML = "";
-  for (const p of list) els.
-    grid.appendChild(card(p));
-
-  els.empty.classList.toggle("hidden", list.length == 0);
-}
-
-buildCategories();
-applyFilters();
-els.q.addEventListener("input", applyFilters);
-els.cat.addEventListener("change", applyFilters);
-els.sort.addEventListener("change", applyFilters);
+function applyFilters() {
+  const q = (els.q.value || "").trim().
