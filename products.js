@@ -7,7 +7,7 @@ const TELEGRAM_USERNAME = "tea_homeeeee";
 const products = [
   {
     id: "shu-02",
-    name: "Шу Пуер • Кремовий профіль",
+    name: "Шу Пуер",
     category: "Пуер",
     priceUAH: 420,
     unit: "50 г",
@@ -17,7 +17,7 @@ const products = [
   },
   {
     id: "dahongpao-01",
-    name: "Да Хун Пао (Уішань)",
+    name: "Да Хун Пао",
     category: "Улун",
     priceUAH: 450,
     unit: "50 г",
@@ -27,7 +27,7 @@ const products = [
   },
   {
     id: "flower-dragon-120g",
-    name: "Квітковий чай • Перлини Дракона • 120 г (18 кульок)",
+    name: "Квітковий чай Перлини Дракона 120 г)",
     category: "Чай",
     priceUAH: 359,
     unit: "120 г",
@@ -37,7 +37,7 @@ const products = [
   },
   {
     id: "tea-set-symphony-east",
-    name: "Набір • Чайна Симфонія Сходу • 12 видів",
+    name: "Набір Чайна Симфонія Сходу 12 видів",
     category: "Набори",
     priceUAH: 749,
     unit: "12 шт",
