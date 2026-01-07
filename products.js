@@ -6,10 +6,16 @@ const TELEGRAM_USERNAME = "https://t.me/tea_homeeee";
 // Мінімальна структура товару:
 const products = [
   {
-    id: "shen-01",
-    name: "Набір з 12 видів чаю Чайна Симфонія Сходу з Фуцзянь"],
-    image: "", // сhttps://kovtok.com.ua/wp-content/uploads/2025/05/Annotatsyya-2025-06-17-130242-600x600.jpg https://kovtok.com.ua/wp-content/uploads/2025/05/Annotatsyya-2025-06-17-130810-600x600.jpg вставити url картинки або залишити пустим
-    popular: 10
+    {
+  id: "shu-02",
+  name: "Шу Пуер • Кремовий профіль",
+  category: "Пуер",
+  priceUAH: 420,
+  unit: "50 г",
+  tags: ["спокій", "після їжі"],
+  image: "",
+  popular: 5
+},
   },
   {
     id: "dahongpao-01",
