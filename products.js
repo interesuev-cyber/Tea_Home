@@ -57,17 +57,17 @@ function buildCategories() {
     opt.textContent = c;
     els.cat.appendChild(opt);
 }
-"JS",
-  
-  function telegramLink(p){
-  const text = "Хочу замовити " + p.name + " (" + p.unit + "). Ціна: " + p.priceUAH + " грн";
-  return "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(text);
+
 }
 
 function card(p){
   const div = document.createElement("div");
   div.className = "card";
-
+}
+  function telegramLink(p) {
+  const text = Хочу замовити ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн;
+  return "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(text);
+}
   const thumb = document.createElement("div");
   thumb.className = "thumb";
   if (p.image) {
