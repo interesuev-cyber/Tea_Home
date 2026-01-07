@@ -60,7 +60,7 @@ function buildCategories() {
 }
 
 function telegramLink(p){
-  const text = Привіт! Хочу замовити: ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн.;
+  const text = Привіт Хочу замовити: ${p.name} (${p.unit}). Ціна: ${p.priceUAH} грн.;
   return https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)};
 }
 
@@ -156,7 +156,7 @@ function applyFilters(){
   for (const p of list) els.
     grid.appendChild(card(p));
 
-  els.empty.classList.toggle("hidden", list.length !== 0);
+  els.empty.classList.toggle("hidden", list.length == 0);
 }
 
 buildCategories();
