@@ -1,7 +1,7 @@
 // 1) Замінити USERNAME_HERE у index.html на свій Telegram username
 // 2) Додавати товари в масив products нижче
 
-const TELEGRAM_USERNAME = "tea_homeeee"; // ТУТ тільки username без https:// і без @
+const TELEGRAM_USERNAME = "tea_homeeeee";
 
 // Мінімальна структура товару:
 const products = [
@@ -59,7 +59,7 @@ function buildCategories() {
 }
 function telegramLink(p){
   const text = "Хочу замовити " + p.name + " (" + p.unit + "). Ціна: " + p.priceUAH + " грн";
-  return "https://t.me/" + "tea_homeee" + "?text=" + encodeURIComponent(text)
+  return "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(text);
 
 }
 
